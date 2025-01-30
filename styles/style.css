@@ -79,6 +79,7 @@ ol {
   height: 100%;
   max-height: 386px;
   object-fit: cover;
+  object-position: center;
 }
 
 .search-form {
@@ -163,7 +164,6 @@ ol {
   line-height: 21.6px;
 }
 
-
 .search-form__checkbox-list {
   display: inline-flex;
   flex-direction: row;
@@ -173,6 +173,9 @@ ol {
 }
 
 .search-form__checkbox-list .search-form__label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
   min-width: 59px;
 }
 
@@ -199,7 +202,7 @@ ol {
   outline: none;
 }
 
-.search-form__label:has(input.search-form__checkbox:focus-visible) {
+.search-form__label:has(.search-form__checkbox:focus-visible) {
   outline: 1px solid #fff;
   outline-offset: 2px;
 }
@@ -215,6 +218,7 @@ ol {
   grid-area: content__details;
   justify-content: space-between;
   width: 100%;
+  min-width: 399px;
   height: 100%;
 }
 
@@ -234,8 +238,7 @@ ol {
 .content__list-container {
   position: relative;
   max-height: 298px;
-  overflow: scroll;
-  overflow-x: hidden;
+  overflow-y: scroll;
 }
 
 .content__list {
@@ -248,10 +251,9 @@ ol {
   display: block;
 }
 
-.content__list-item:has(.content__card-link_current) {
+.content__card-link_current {
   background: #545050;
 }
-
 
 .content__card-link {
   display: block;
@@ -259,11 +261,14 @@ ol {
   text-decoration: none;
 }
 
+.content__card-link:first-of-type {
+  margin-top: 2px;
+}
+
 .content__card-link:hover {
   text-decoration: underline;
   cursor: pointer;
 }
-
 
 .content__card-link:active {
   background: #545050;
@@ -278,12 +283,6 @@ ol {
   margin-left: 3px;
   outline: 1px solid #fff;
   outline-offset: 1px;
-}
-
-/* чтобы обводка в состоянии focus-visible была полностью видна у первой карточки, 
-добавим верхний отступ */
-.content__card-link:focus-visible:first-of-type {
-  margin-top: 2px;
 }
 
 .content__video-card {
@@ -327,7 +326,7 @@ ol {
 }
 
 .content__video-card-thumbnail {
-  min-width: 194px;
+  max-width: 194px;
   max-height: 103px;
   margin-left: auto;
   object-fit: cover;
@@ -341,7 +340,7 @@ ol {
   block-size: 1px;
   clip-path: inset(50%);
   white-space: nowrap;
-} 
+}
 
 .button {
   width: 100%;
@@ -355,11 +354,11 @@ ol {
   font-style: normal;
   line-height: 22px;
   background-color: transparent;
+  cursor: pointer;
 }
 
 .button:hover {
   text-decoration: underline;
-  cursor: pointer;
 }
 
 .button:active {
@@ -381,7 +380,6 @@ ol {
 
 .more-button {
   margin-top: 30px;
-  margin-right: 1px;
 }
 
 /* чтобы обводка в состоянии focus-visible была полностью видна, 
